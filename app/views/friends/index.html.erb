@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Friends</h1>
+
+<table class="table table-striped table-hover">
+  <thead class = "thead-dark">
+    <tr>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Twitter</th>
+      <th scope></th>
+      <th scope></th>
+      <th scope></th>
+
+
+    </tr>
+  </thead>
+
+<div id="friends">
+  <% @friends.each do |friend| %>
+
+     <tbody>
+    <tr>
+      <td><%= friend.first_name %></td>
+      <td><%= friend.last_name %></td>
+      <td><%= friend.email %></td>
+      <td><%= friend.phone %></td>
+      <td><%= friend.twitter %></td>
+      <td><%= link_to "Show", friend%></td>
+      <td> <%= link_to "Edit", edit_friend_path(friend) %> </td>
+      <td> <%= button_to "Destroy", friend, method: :delete %> </td>
+    </tr>
+  </tbody>
+   <!-- <%= render friend %> -->
+  <% end %>
+</div>
+</table>
+<%= link_to "New friend", new_friend_path %>
